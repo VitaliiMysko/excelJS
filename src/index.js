@@ -7,7 +7,3 @@ async function start() {
 }
 
 start().then(console.log)
-
-if (true) {
-    return true
-}
