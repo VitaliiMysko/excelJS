@@ -1,0 +1,72 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.excel__table {
+    position: absolute;
+    top: $header-height + $toolbar-height + $formula-height;
+    left: 0;
+    right: 0;
+    overflow-x: auto;
+    padding-bottom: 2px;
+
+    & .row {
+        display: flex;
+        flex-direction: row;
+        min-height: 20px;
+        height: $row-height;
+
+        // align-items: center;
+    }
+
+    & .row-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        min-width: $info-cell-width;
+        border: 1px solid $border-color;
+        border-top: none;
+        background: #f8f9fa;
+    }
+
+    & .row-data {
+        display: flex;
+        // min-width: $info-cell-width;
+        // width: 120px;
+        // border: 1px solid $border-color;
+        // border-top: none;
+        // border-left: none;
+    }
+
+    & .column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        width: $cell-width;
+        height: 100%;
+        border: 1px solid $border-color;
+        border-top: none;
+        border-left: none;
+        background: #f8f9fa;
+    }
+
+    & .cell {
+        padding: 5px;
+        min-width: 40px;
+        width: $cell-width;
+        height: 100%;
+        border: 1px solid #e2e3e3;
+        border-top: none;
+        border-left: none;
+        color: #111;
+        white-space: nowrap;
+        outline: none;
+
+        &.selected {
+            border: none;
+            outline: 2px solid #3c74ff;
+            z-index: 2;
+        }
+    }
+}
