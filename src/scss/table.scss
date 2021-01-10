@@ -19,6 +19,7 @@
     }
 
     & .row-info {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -30,6 +31,7 @@
     }
 
     & .row-data {
+        position: relative;
         display: flex;
         // min-width: $info-cell-width;
         // width: 120px;
@@ -67,6 +69,26 @@
             border: none;
             outline: 2px solid #3c74ff;
             z-index: 2;
+        }
+    }
+
+    .col-resize {
+        position: absolute;
+        width: 4px;
+        background-color: #3c74ff;
+
+        & :hover {
+            background-color: red;
+        }
+    }
+
+    .row-resize {
+        position: absolute;
+        width: 4px;
+        background-color: #3c74ff;
+
+        & :hover {
+            background-color: red;
         }
     }
 }
