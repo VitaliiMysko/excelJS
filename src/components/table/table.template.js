@@ -3,23 +3,41 @@ const CODES = {
     Z: 'Z'.charCodeAt(0),
 }
 
-function toCell() {
-    return `<div class="cell" contenteditable></div>`
+function toCell(_, numberCol) {
+    return `<div class="cell" 
+        data-number-col="${numberCol + 1}" 
+        contenteditable>
+    </div>`
 }
 
 function toChar(_, index) {
     return String.fromCodePoint(CODES.A + index)
 }
 
-function toColumn(col) {
-    return `<div class="column">${col}</div>`
+function toColumn(col, numberCol) {
+    return `
+        <div class="column" 
+            data-type="resizable" 
+            data-number-col=${numberCol + 1}>
+                ${col}
+            <div class="col-resize" data-resize="col">
+            </div>
+        </div>
+    `
 }
 
 function createRow(index, content) {
-    return `
-    <div class="row">
-        <div class="row-info">${index ? index : ''}</div>
+    const resize = index
+        ? '<div class="row-resize" data-resize="row"></div>'
+        : ''
 
+    return `
+    <div class="row" data-type="resizable">
+        <div class="row-info">    
+            ${index ? index : ''}
+            ${resize}
+        </div>
+        
         <div class="row-data">
             ${content}
         </div>
