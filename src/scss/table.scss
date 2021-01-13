@@ -14,8 +14,6 @@
         flex-direction: row;
         min-height: 20px;
         height: $row-height;
-
-        // align-items: center;
     }
 
     & .row-info {
@@ -31,16 +29,11 @@
     }
 
     & .row-data {
-        position: relative;
         display: flex;
-        // min-width: $info-cell-width;
-        // width: 120px;
-        // border: 1px solid $border-color;
-        // border-top: none;
-        // border-left: none;
     }
 
     & .column {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -67,28 +60,41 @@
 
         &.selected {
             border: none;
-            outline: 2px solid #3c74ff;
+            outline: 2px solid $primery-color;
             z-index: 2;
         }
     }
 
-    .col-resize {
+    & .col-resize,
+    & .row-resize {
         position: absolute;
-        width: 4px;
-        background-color: #3c74ff;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        background: $primery-color;
+        z-index: 1000;
 
-        & :hover {
-            background-color: red;
+        &:hover {
+            opacity: 1 !important;
+            // opacity: 1;
         }
     }
 
-    .row-resize {
-        position: absolute;
+    & .col-resize {
+        top: 0;
         width: 4px;
-        background-color: #3c74ff;
 
-        & :hover {
-            background-color: red;
+        &:hover {
+            cursor: col-resize;
+        }
+    }
+
+    & .row-resize {
+        left: 0;
+        height: 4px;
+
+        &:hover {
+            cursor: row-resize;
         }
     }
 }

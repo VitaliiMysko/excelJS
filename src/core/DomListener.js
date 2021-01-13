@@ -21,7 +21,7 @@ export class DomListener {
             }
 
             this[method] = this[method].bind(this)
-            this.$root.on(listener, this[method].bind(this))
+            this.$root.on(listener, this[method])
         })
     }
 
